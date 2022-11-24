@@ -1,21 +1,25 @@
 import { Document, model, Schema } from 'mongoose'
 
 interface IUploadSchema extends Document {
-    dev_id: string,
-    title?: string,
-    icon?: string,
-    size?: number,
-    name_app?: string,
-    category?: string,
-    description?: string,
-    short_description?: string,
-    developer_name?: string,
-    downloads?: number,
-    rating?: number,
-    prints?: [],
-    tags?: Array<string>,
-    is_public?: boolean,
-    status?: number
+  dev_id: string,
+  title?: string,
+  icon?: string,
+  size?: number,
+  name_app?: string,
+  category?: string,
+  description?: string,
+  short_description?: string,
+  developer_name?: string,
+  downloads?: number,
+  rating?: number,
+  prints?: [],
+  tags?: Array<string>,
+  is_public?: boolean,
+  sha256?: string,
+  sha1?: string,
+  version?: string,
+  build_version?: string,
+  status?: number
 }
 
 const tempUploadSchema = new Schema<IUploadSchema>(
@@ -67,6 +71,18 @@ const tempUploadSchema = new Schema<IUploadSchema>(
     },
     prints: {
       type: [],
+      require: false
+    },
+    sha256: {
+      type: String,
+      require: false
+    },
+    version: {
+      type: String,
+      require: false
+    },
+    build_version: {
+      type: String,
       require: false
     },
     status: {

@@ -1,11 +1,12 @@
 import * as yup from 'yup'
+import { IUploadApp } from '../types/store'
 
-export const uploadValidation = yup.object().shape(
+export const uploadAppValidation: yup.SchemaOf<IUploadApp> = yup.object().shape(
   {
-    title: yup.string().max(60),
-    category: yup.string().max(60),
-    description: yup.string().min(100).max(500),
-    short_description: yup.string().max(100),
-    prints: yup.array().required().max(6)
+    package: yup.string().max(100),
+    version: yup.string().max(60),
+    build_version: yup.string().max(60),
+    sha256: yup.string().max(100),
+    sha1: yup.string().max(100)
   }
 )

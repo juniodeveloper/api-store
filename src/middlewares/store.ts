@@ -1,11 +1,13 @@
 import { NextFunction, Request, Response } from 'express'
-import tempUploadSchema from '../schemas/temp_upload'
+import tempUploadSchema from '../schemas/temp-upload'
 
 class StoreMiddleware {
 
   async appUploaded (req: Request, res: Response, next: NextFunction) {
 
-    const data = await tempUploadSchema.findOne({ dev_id: '1234' })
+    console.log(req.body)
+
+    const data = await tempUploadSchema.findOne({ dev_id: '12345' })
 
     if (data?.name_app) {
       return res.status(400).json(

@@ -1,6 +1,6 @@
 import env from 'dotenv'
 import express from 'express'
-import mongoConnect from './database/mongo.connect'
+import mongoConnect from './config/mongoose'
 import route from './router/routes'
 env.config()
 const app = express()
